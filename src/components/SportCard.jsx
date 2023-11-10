@@ -9,4 +9,4 @@ const SportCard = (props) => {
     )
 }
 
-export default SportCard
+export default SportCard;

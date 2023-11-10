@@ -30,7 +30,7 @@ const AdminDashBoard = () => {
                     className="w-10/12 py-3 text-center border-b-2 rounded-t-md border-black hover:bg-yellow-100 cursor-pointer"
                     onClick={() => setComponent("deleteteam")}
                 >
-                        Delete Team</span>
+                        Teams</span>
             </div>
             <div className="w-9/12 h-full">
                 {(compenent === "summery") ? <Summery/> : (compenent === "addteam") ?  <AddTeam/> : (compenent === "updateteam") ? <UpdateTeam/> : <DeleteTeam/>}
