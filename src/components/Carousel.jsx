@@ -21,7 +21,7 @@ const Carousel = () => {
     return(
         <div className="relative h-90vh w-full flex flex-col items-end justify-center bg-white">
             <img src={currentObject.image} alt="" className="absolute h-full w-full" />
-            <section className="relative w-2/3 h-full md:h-auto md:w-6/12 md:aspect-video flex flex-col justify-center gap-5 md:mr-16 z-40 bg-transparent-black text-white overflow-hidden">
+            <section className="relative w-[600px] rounded-lg h-[300px] md:aspect-video flex flex-col justify-center gap-5 md:mr-[50px] bg-transparent-black text-white overflow-hidden">
                 <h2 className="text-2xl font-semibold ml-8 w-3/6 ">"{currentObject.tittle}"</h2>
                 <p className="ml-8 h-2/6 w-5/6 overflow-hidden">{currentObject.description}</p>
             </section>

@@ -10,7 +10,7 @@ const AdminDashBoard = () => {
 
     return(
         <div className="w-full h-90vh flex">
-            <div className="w-3/12 h-full flex flex-col text-lg items-center gap-3 bg-white">
+            <div className="w-3/12 h-full flex flex-col text-lg items-center gap-3 bg-yellow-500">
                 <span 
                     className="w-10/12 py-3 text-center border-b-2 rounded-t-md border-black hover:bg-yellow-100 mt-2 cursor-pointer"
                     onClick={() => setComponent("summery")}

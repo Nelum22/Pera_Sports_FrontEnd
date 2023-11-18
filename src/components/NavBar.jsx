@@ -8,9 +8,9 @@ const NavBar = () => {
     const [visibility, setVisibility] = useState(false)
 
     return(
-        <header className="relative bg-pera-yellow w-full top-0 left-0 right-0 z-30 flex items-center justify-between">
+        <header className="relative bg-gradient-to-r from-yellow-500 via-black-500 to-red-800 w-full top-0 left-0 right-0 z-30 flex items-center justify-between">
             <span className="flex items-center gap-2">
-                <img src={logo} alt="logo" className="w-16" />
+                <img className="w-16 ml-[30px] mt-[8px]"  src={logo} alt="logo"/>
                 <span>
                     <h2 className="hidden md:block font-semibold">University of Deradeniya</h2>
                     <p className="hidden md:block text-xs">Department of Physical Education</p>

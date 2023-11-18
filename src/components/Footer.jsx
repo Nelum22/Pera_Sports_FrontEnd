@@ -5,24 +5,32 @@ import location from '../assets/location.png'
 
 const Footer = () => {
     return(
-        <footer className="w-full h-fit flex justify-center bg-gray-100 text-gray-700 py-20">
+        <footer className="w-full h-fit flex justify-center bg-gradient-to-r from-yellow-500 via-black-500 to-red-800 text-white py-[50px]">
             <div className="grid grid-cols-1 md:grid-cols-2 w-4/6 gap-4 justify-items-end">
                 <section className="grid place-content-start">
                     <h2 className="text-xl font-semibold mb-4">About</h2>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
+                        when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                        It has survived not only five centuries, but also the leap into electronic typesetting, 
+                        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset 
+                        sheets containing Lorem Ipsum passages, and more recently with desktop publishing software 
+                        like Aldus PageMaker including versions of Lorem Ipsum
+                    </p>
                 </section>
                 <section>
                     <h2 className="text-xl font-semibold mb-4">Contact</h2>
                         <table>
-                            <tbody>
+                            <tbody >
                                 <tr>
-                                    <td className="grid place-items-center py-3">
+                                {/* className="pr-[20px]" */}
+                                    <td className="grid place-items-center py-3 pr-[20px] colour-white">
                                         <img src={phone} alt="phone" />
                                     </td>
                                     <td>081 542 2546</td>
                                 </tr>
                                 <tr>
-                                    <td className="grid place-items-center py-3">
+                                    <td className="grid place-items-center py-3 pr-[20px]">
                                         <img src={mail} alt="mail" />
                                     </td>
                                     <td className="">
@@ -30,7 +38,7 @@ const Footer = () => {
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td className="grid place-items-center py-3">
+                                    <td className="grid place-items-center py-3 pr-[20px]">
                                         <img src={location} alt="location" />
                                     </td>
                                     <td>
