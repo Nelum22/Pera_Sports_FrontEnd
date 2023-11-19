@@ -24,7 +24,7 @@ const Footer = () => {
                             <tbody >
                                 <tr>
                                 {/* className="pr-[20px]" */}
-                                    <td className="grid place-items-center py-3 pr-[20px] colour-white">
+                                    <td className="grid place-items-center py-3 pr-[20px]">
                                         <img src={phone} alt="phone" />
                                     </td>
                                     <td>081 542 2546</td>
