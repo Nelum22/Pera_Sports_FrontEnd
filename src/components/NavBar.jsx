@@ -12,7 +12,7 @@ const NavBar = () => {
             <span className="flex items-center gap-2">
                 <img className="w-16 ml-[30px] mt-[8px]"  src={logo} alt="logo"/>
                 <span>
-                    <h2 className="hidden md:block font-semibold">University of Deradeniya</h2>
+                    <h2 className="hidden md:block font-semibold">University of Peradeniya</h2>
                     <p className="hidden md:block text-xs">Department of Physical Education</p>
                 </span>
             </span>
