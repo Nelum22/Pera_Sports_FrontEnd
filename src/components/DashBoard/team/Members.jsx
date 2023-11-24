@@ -8,6 +8,21 @@ export default function Members(props) {
 
     const columnHelper = createColumnHelper();
 
+
+    const handleStateChange = (rowId, newState) => {
+        const updatedData = data.map((d, i) => {
+            if (`${i}` === rowId) {
+                return {
+                    ...d,
+                    states: newState,
+                };
+            }
+            return d;
+        });
+
+        setData(updatedData);
+    };
+
     const columns = [
         columnHelper.accessor("", {
             id: "RegNo",
@@ -28,30 +43,41 @@ export default function Members(props) {
             cell: (info) => <span>{info.getValue()}</span>,
             header: "Name",
         }),
-        // columnHelper.accessor("lastName", {
-        //     cell: (info) => <span>{info.getValue()}</span>,
-        //     header: "Last Name",
-        // }),
         columnHelper.accessor("age", {
             cell: (info) => <span>{info.getValue()}</span>,
             header: "Age",
         }),
-        
+
         columnHelper.accessor("", {
-            cell: (info) => <button type="submit" class="text-white bg-gray-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update</button>,
+            cell: (info) => <button type="submit" className="text-center text-white bg-gray-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 h-[35px]">Update</button>,
             header: "Edite",
         }),
         columnHelper.accessor("", {
-            id: "RegNo",
-            cell: (info) => <span></span>,
+            id: "states",
+            cell: (info) => {
+                const states = info.row.values.states;
+                <div className="flex items-center justify-center">
+                     <input
+                        checked={states === "Active"}
+                        onChange={() => handleStateChange("Active")}
+                        className="mr-1"
+                    />
+                    <label htmlFor={`active-${info.row.id}`} className="mr-3 text-green-500">Active</label>
+                     <input
+                        // type="radio"
+                        // id={`deactivate-${info.row.id}`}
+                        // name={`state-${info.row.id}`}
+                        checked={states === "Deactivate"}
+                        onChange={() => handleStateChange("Deactivate")}
+                        className="mr-1"
+                    />
+                    <label htmlFor={`deactivate-${info.row.id}`} className="text-red-500">Deactivate</label>
+                </div>
+            },
             header: "States",
         }),
-        // columnHelper.accessor("progress", {
-        //     cell: (info) => <span>{info.getValue()}</span>,
-        //     header: "Progress",
-        // }),
     ];
-      const [data] = useState(() => [...USERS]);
+    const [data] = useState(() => [...USERS]);
     const [globalFilter, setGlobalFilter] = useState("");
 
     const table = useReactTable({
@@ -84,20 +110,9 @@ export default function Members(props) {
         //     </div>
         // </div>
 
-        <div className="p-2 max-w-5xl mx-auto  fill-gray-400 rounded">
-            {/* <div className="flex justify-between mb-2">
-                <div className="w-full flex items-center gap-1">
-                    <SearchIcon />
-                    <DebouncedInput
-                        value={globalFilter ?? ""}
-                        onChange={(value) => setGlobalFilter(String(value))}
-                        className="p-2 bg-transparent outline-none border-b-2 w-1/5 focus:w-1/3 duration-300 border-indigo-500"
-                        placeholder="Search all columns..."
-                    />
-                </div>
-                <DownloadBtn data={data} fileName={"peoples"} />
-            </div> */}
-            <table className="border  w-full text-left">
+        <div className="p-[4px] max-w-5xl mx-auto  fill-gray-400 rounded">
+
+            <table className="border  w-full text-left rounded">
                 <thead className="bg-yellow-500 rounded-md">
                     {table.getHeaderGroups().map((headerGroup) => (
                         <tr key={headerGroup.id}>
@@ -182,7 +197,7 @@ export default function Members(props) {
                     }}
                     className="p-2 bg-black rounded"
                 >
-                    {[10, 20].map((pageSize) => (
+                    {[10, 20,30].map((pageSize) => (
                         <option key={pageSize} value={pageSize}>
                             Show {pageSize}
                         </option>
@@ -190,6 +205,6 @@ export default function Members(props) {
                 </select>
             </div>
         </div>
-       
+
     )
 }
