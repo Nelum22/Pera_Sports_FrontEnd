@@ -20,12 +20,12 @@ export default function LeaderDashboard() {
                     className="w-10/12 py-3 text-center border-b-2 rounded-t-md border-black hover:bg-yellow-100 cursor-pointer"
                     onClick={() => setComponent("addmember")}
                 >
-                    Add Team</span>
-                <span
+                    Add Member</span>
+                {/* <span
                     className="w-10/12 py-3 text-center border-b-2 rounded-t-md border-black hover:bg-yellow-100 cursor-pointer"
                     onClick={() => setComponent("updatemember")}
                 >
-                    Update Team</span>
+                    Update Team</span> */}
             </div>
             <div className="w-9/12 h-full">
                 {(compenent === "members") ? <Members /> : (compenent === "addmember") ? <AddMember /> : (compenent === "updatemember") ? <UpdateMember /> : <DeleteTeam />}
