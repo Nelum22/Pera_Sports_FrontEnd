@@ -8,18 +8,13 @@ export default function Members(props) {
 
     const columnHelper = createColumnHelper();
 
-    const [dataa, setData] = useState([
-        { isActive: true },
-        { isActive: false },
-        { isActive: true },
-        // Add more data as needed
-    ]);
+    
 
-    const toggleState = (index) => {
-        const newData = [...dataa];
-        newData[index].isActive = !newData[index].isActive;
-        setData(newData);
-    };
+    // const toggleState = (index) => {
+    //     const newData = [...dataa];
+    //     newData[index].isActive = !newData[index].isActive;
+    //     setData(newData);
+    // };
 
     const columns = [
         columnHelper.accessor("", {
@@ -70,17 +65,17 @@ export default function Members(props) {
                 //     />
                 //     <label htmlFor={`deactivate-${info.row.id}`} className="text-red-500">Deactivate</label>
                 // </div>
-                {
-                    data.map((item, index) => (
-                        <button
-                            className={`${item.isActive ? 'text-green-500' : 'text-red-500'
-                                } focus:outline-none`}
-                            onClick={() => toggleState(index)}
-                        >
-                            {item.isActive ? 'Active' : 'Deactive'}
-                        </button>
-                    ))
-                }
+                // {
+                //     data.map((item, index) => (
+                //         <button
+                //             className={`${item.isActive ? 'text-green-500' : 'text-red-500'
+                //                 } focus:outline-none`}
+                //             onClick={() => toggleState(index)}
+                //         >
+                //             {item.isActive ? 'Active' : 'Deactive'}
+                //         </button>
+                //     ))
+                // }
             },
             header: "States",
         }),
