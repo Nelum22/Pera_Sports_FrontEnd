@@ -12,14 +12,14 @@ const TeamDetails = (props) => {
                 <p>{props.year}</p>
                 <hr className="w-2"/>
             </section>
+            <br/>
             <section>
-                <p>Coach : Samtha</p>
-                <p>Captain : Dasum samnaka</p>
-                <p>Vice-captain: king mendis</p>
-                <p>Number of Players: 25</p>
+                <p>Captain : {props.captain}</p>
+                <p>Vice-captain: {props.vcaptain}</p>
+                <p>Team Count: {props.count}</p>
             </section>
             <section className="py-2 flex justify-end gap-4 ">
-                <UpdateTeamButton id={props.id}/>
+                <UpdateTeamButton id={props.id} name={props.name} year={props.year} count={props.count} status={props.status}/>
                 <DeleteTeamButton id={props.id}/>
             </section>
             <></>

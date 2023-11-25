@@ -14,19 +14,19 @@ export default function AddMember() {
     };
     return (
         <div className="p-2">
-            <form className="border border-red-500 border-2 rounded-lg p-2">
+            <form onSubmit={handleSubmit} className="border-red-500 border-2 rounded-lg p-2">
                 <div className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">ADD MEMBER</div>
                 <div>
-                    <label for="team_id" className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">First Name</label>
-                    <input type="text" id="first_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter First Name" />
+                    <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">First Name</label>
+                    <input ref={firstName} type="text" id="first_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter First Name" />
                 </div>
                 <div>
-                    <label for="team_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Last Name</label>
-                    <input type="text" id="Nu_of_players" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Last Name" />
+                    <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Last Name</label>
+                    <input ref={lastName} type="text" id="Nu_of_players" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Last Name" />
                 </div>
                 <div>
-                    <label for="team_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Faculty</label>
-                    <input type="text" id="company" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Faculty" />
+                    <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Faculty</label>
+                    <input ref={faculty} type="text" id="company" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter Faculty" />
                 </div>
                 <div class="mt-[30px] grid grid-cols-1 gap-6 md:grid-cols-2">
                     <div>

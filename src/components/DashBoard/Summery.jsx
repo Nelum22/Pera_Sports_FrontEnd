@@ -25,6 +25,7 @@ const Summery = () => {
     return(
         <RefreshContext.Provider value={{change, setChange}}>
         <div className=" w-full h-full flex flex-col items-center bg-black">
+            {/* {console.log(teams)} */}
                 <section className="w-11/12 h-2/6 flex justify-between items-center">
                     <div className="w-5/12 h-5/6 flex flex-col justify-around bg-white p-4 rounded-md">
                         <p className="text-gray-800 text-xs font-normal">Number of</p>
@@ -45,6 +46,8 @@ const Summery = () => {
                         name = {team.teamName}
                         year = {team.teamYear}
                         count = {team.teamCount}
+                        captain = {team.captain}
+                        vcaptain = {team.vcaptain}
                         status = {team.teamStatus}
                     />
 

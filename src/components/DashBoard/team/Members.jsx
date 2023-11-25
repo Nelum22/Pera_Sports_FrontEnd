@@ -3,10 +3,27 @@ import React, { useState } from 'react'
 import { createColumnHelper, flexRender, getCoreRowModel, getFilteredRowModel, getPaginationRowModel, useReactTable } from '@tanstack/react-table';
 // import DebouncedInput from '../icons/DebouncedInput';
 import { USERS } from '../icons/Data';
+import { getPlayers } from '../../../services/playersServices';
+import UpdatePlayerButton from './UpadatePlayerButton';
 
 export default function Members(props) {
 
     const columnHelper = createColumnHelper();
+    const [udata, setData] = useState([])
+    const teamName = localStorage.getItem("role")
+
+    React.useEffect(() => {
+        const fetchTeams = async() => {
+            try{
+                const teamsData = await getPlayers(teamName)
+                setData(teamsData);
+            }
+            catch(error){
+                console.log(error)
+            }
+        }
+        fetchTeams()
+    },[])
 
     
 
@@ -80,6 +97,8 @@ export default function Members(props) {
             header: "States",
         }),
     ];
+
+    // const kdata = Object.assign({}, udata);
     const [data] = useState(() => [...USERS]);
     const [globalFilter, setGlobalFilter] = useState("");
 
@@ -135,6 +154,7 @@ export default function Members(props) {
                         </tr>
                     )}
                 </tbody>
+              
             </table>
             {/* pagination */}
             <div className="flex items-center justify-end mt-2 gap-2 bg-black rounded text-white ">

@@ -13,10 +13,11 @@ export const SearchContext = React.createContext()
 function App() {
 
   const [search, setSearch] = React.useState("")
+  const [role, setRole] = React.useState()
 
   return (
     <>
-    <SearchContext.Provider value={{search, setSearch}}>
+    <SearchContext.Provider value={{search, setSearch, role, setRole}}>
       <Routes>
         <Route path='/login' element={<Login/>}/>
         <Route path='/' element={<Layout/>}>

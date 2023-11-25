@@ -13,7 +13,7 @@ const UpdateTeamButton = (props) => {
                 Update Team
             </button>
             <ModelOverlay visibility={isVisible} setVisibility={setIsVisible}>
-                <UpdateTeamModel id={props.id} setVisibility={setIsVisible}/>
+                <UpdateTeamModel id={props.id} name={props.name} year={props.year} count={props.count} status={props.status} setVisibility={setIsVisible}/>
             </ModelOverlay>
         </>
     )

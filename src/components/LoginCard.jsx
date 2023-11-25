@@ -4,7 +4,7 @@ import { Controller, useForm } from "react-hook-form";
 import FormElement from "../FormElement/FormElement";
 import { signin } from "../services/authServices";
 import { useNavigate } from "react-router-dom";
-
+import { SearchContext } from "../App";
 
 const LoginCard = () => {
 
@@ -13,6 +13,7 @@ const LoginCard = () => {
     // const passwordRef = useRef()
     const [error, setError] = useState(null)
     const navigate = useNavigate();
+    const searchContext = React.useContext(SearchContext)
 
     const { control, handleSubmit, formState: { errors } } = useForm();
 
@@ -23,18 +24,21 @@ const LoginCard = () => {
         const getResponse = async() => {
             try{
                 const userData = await signin(data)
-
                 const role = {
                     teamName: userData.teamName
                 }
                 if(userData.teamName == 'Admin')
-                {
-                    navigate('/dashboard', {state:data})
+                {   
+                    searchContext.setRole(userData.teamName)
+                    localStorage.setItem("role",userData.teamName)
+                    navigate('/dashboard', {state:role})
                 }
                 else if(userData.teamName == '')(
                     navigate('/login')
                 )
                 else{
+                    searchContext.setRole(userData.teamName)
+                    localStorage.setItem("role",userData.teamName)
                     navigate('/leaderboard', {state:role})
                 }
             }

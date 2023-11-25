@@ -38,15 +38,15 @@ const UpdateTeamModel = (props) => {
                 <div className="grid gap-6 mb-6 md:grid-cols-2 ">
                     <div>
                         <label htmlFor="team_id" className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Team Name</label>
-                        <input ref={teamName} type="text" id="first_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Team Name"  />
+                        <input ref={teamName} defaultValue={props.name} type="text" id="first_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Team Name"  />
                     </div>
                     <div>
                         <label htmlFor="team_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Team Count</label>
-                        <input ref={teamCount} type="number" id="Nu_of_players" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Team Count" />
+                        <input ref={teamCount} defaultValue={props.count} type="number" id="Nu_of_players" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Team Count" />
                     </div>
                     <div>
                         <label htmlFor="team_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Team Year</label>
-                        <input ref={teamYear} type="text" id="company" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Team Year" />
+                        <input ref={teamYear} defaultValue={props.year} type="text" id="company" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Team Year" />
                     </div>
                     <div>
                         <label htmlFor="team_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Team Status</label>

@@ -13,7 +13,6 @@
     "axios": "^1.6.2",
     "@faker-js/faker": "^8.0.2",
     "@tanstack/react-table": "^8.10.7",
-    "axios": "^1.6.2",
     "flowbite-datepicker": "^1.2.4",
     "node": "^21.1.0",
     "react": "^18.2.0",
