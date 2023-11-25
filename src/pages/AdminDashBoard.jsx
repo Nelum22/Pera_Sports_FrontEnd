@@ -1,8 +1,6 @@
 import React, {useState} from "react";
 import Summery from "../components/DashBoard/Summery";
 import AddTeam from "../components/DashBoard/AddTeam";
-import UpdateTeam from "../components/DashBoard/UpdateTeam"
-import DeleteTeam from "../components/DashBoard/DeteleTeam"
 
 const AdminDashBoard = () => {
 
@@ -21,19 +19,9 @@ const AdminDashBoard = () => {
                     onClick={() => setComponent("addteam")}
                 >
                         Add Team</span>
-                <span 
-                    className="w-10/12 py-3 text-center border-b-2 rounded-t-md border-black hover:bg-yellow-100 cursor-pointer"
-                    onClick={() => setComponent("updateteam")}
-                >
-                        Update Team</span>
-                <span 
-                    className="w-10/12 py-3 text-center border-b-2 rounded-t-md border-black hover:bg-yellow-100 cursor-pointer"
-                    onClick={() => setComponent("deleteteam")}
-                >
-                        Teams</span>
             </div>
             <div className="w-9/12 h-full">
-                {(compenent === "summery") ? <Summery/> : (compenent === "addteam") ?  <AddTeam/> : (compenent === "updateteam") ? <UpdateTeam/> : <DeleteTeam/>}
+                {(compenent === "summery") ? <Summery/> : <AddTeam/>}
             </div>
         </div>
     )

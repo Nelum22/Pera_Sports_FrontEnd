@@ -1,78 +1,50 @@
 import React, { useState, useRef } from "react";
 import logo from '../assets/pera-logo.svg'
-import axios from "axios";
 import { Controller, useForm } from "react-hook-form";
 import FormElement from "../FormElement/FormElement";
+import { signin } from "../services/authServices";
+import { useNavigate } from "react-router-dom";
+
 
 const LoginCard = () => {
 
 
-    const emailRef = useRef()
-    const passwordRef = useRef()
+    // const emailRef = useRef()
+    // const passwordRef = useRef()
     const [error, setError] = useState(null)
-
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const { control, handleSubmit, formState: { errors } } = useForm();
-
-
-    // const storedData = localStorage.getItem("logUser");
-
-    // const userRoleClaim = "http://schemas.microsoft.com/ws/2008/06/identity/claims/role"
-    // // const userNameClaim = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name"
-
-    // // Parse the stored data
-    // const parsedData = JSON.parse(storedData);
-
-    // // Get the access token from the parsed data
-    // const accessToken = parsedData?.accessToken;
-
-    // const token = accessToken;
-
-    // const decodedToken = atob(token.split('.')[1]);
-
-    // var userRole = JSON.parse(decodedToken)[userRoleClaim]
-    // // var userName = JSON.parse(decodedToken)[userNameClaim]
-    // console.log(userRole);
-    // // console.log(userName);
-
-    // if (userRole !== null) {
-    //     if (userRole === "Admin") {
-    //         console.log("User is an admin");
-    //         // Redirect or perform actions for an admin
-    //         navigate("/products");
-    //     } else {
-    //         console.log("User is not an admin");
-    //         // Redirect or perform actions for non-admin users
-    //         navigate("/");
-    //     }
-    // } else {
-    //     console.log("Role claim not found or invalid token");
-    // }
 
 
     const onSubmit = (data) => {
         // console.log(data);
 
-        let config = {
-            method: 'post',
-            maxBodyLength: Infinity,
-            url: 'http://localhost:8080/pera-sport/auth/login',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            data: data
-        };
+        const getResponse = async() => {
+            try{
+                const userData = await signin(data)
 
-        axios.request(config)
-            .then((response) => {
-                // console.log(response.data);
-                localStorage.setItem("logUser", JSON.stringify(response.data));
+                const role = {
+                    teamName: userData.teamName
+                }
+                if(userData.teamName == 'Admin')
+                {
+                    navigate('/dashboard', {state:data})
+                }
+                else if(userData.teamName == '')(
+                    navigate('/login')
+                )
+                else{
+                    navigate('/leaderboard', {state:role})
+                }
+            }
+            catch(error){
+                console.log(error)
+            }
+        }
 
-            })
-            .catch((error) => {
-                console.log(error);
-            });
+        getResponse()
+
     };
 
     return (
@@ -87,7 +59,7 @@ const LoginCard = () => {
             {error ? <p className="text-center text-xs text-red-600">{error}</p> : null}
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col" action="">
                 <Controller
-                    name="username"
+                    name="userName"
                     control={control}
                     defaultValue=""
                     rules={{ required: 'Username is required' }}

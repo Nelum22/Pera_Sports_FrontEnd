@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Members from '../components/DashBoard/team/Members'
 import AddMember from '../components/DashBoard/team/AddMember'
-import DeleteTeam from '../components/DashBoard/DeteleTeam'
+// import DeleteTeam from '../components/DashBoard/DeteleTeam'
 
 
 export default function LeaderDashboard() {
