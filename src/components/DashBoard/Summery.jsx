@@ -12,7 +12,7 @@ const Summery = () => {
     React.useEffect(() => {
         const fetchTeams = async() => {
             try{
-                const teamsData = await getAllTeams();
+                const teamsData = await getAllTeams("");
                 setTeams(teamsData);
             }
             catch(error){

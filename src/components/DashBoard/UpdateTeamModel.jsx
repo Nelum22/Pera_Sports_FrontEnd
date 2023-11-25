@@ -34,7 +34,7 @@ const UpdateTeamModel = (props) => {
     return(
         <div onClick={(e) => {e.stopPropagation()}} className="grid place-items-center p-2 w-1/2">
             <form onSubmit={handleSubmit} className="w-10/12 bg-white border-red-500 border-2 rounded-lg p-5">
-                <div className="block mb-2 text-2xl font-medium text-gray-900 dark:text-black">Add Team</div>
+                <div className="block mb-2 text-2xl font-medium text-gray-900 dark:text-black">Update Team</div>
                 <div className="grid gap-6 mb-6 md:grid-cols-2 ">
                     <div>
                         <label htmlFor="team_id" className="block mb-2 text-sm font-medium text-gray-900 dark:text-black">Team Name</label>
