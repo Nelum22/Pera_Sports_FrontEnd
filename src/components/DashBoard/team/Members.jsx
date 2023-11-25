@@ -1,27 +1,20 @@
 import React, { useState } from 'react'
-import AdminPlayerCard from './AdminPlayerCard'
+// import AdminPlayerCard from './AdminPlayerCard'
 import { createColumnHelper, flexRender, getCoreRowModel, getFilteredRowModel, getPaginationRowModel, useReactTable } from '@tanstack/react-table';
-import DebouncedInput from '../icons/DebouncedInput';
+// import DebouncedInput from '../icons/DebouncedInput';
 import { USERS } from '../icons/Data';
 
 export default function Members(props) {
 
     const columnHelper = createColumnHelper();
 
+    
 
-    const handleStateChange = (rowId, newState) => {
-        const updatedData = data.map((d, i) => {
-            if (`${i}` === rowId) {
-                return {
-                    ...d,
-                    states: newState,
-                };
-            }
-            return d;
-        });
-
-        setData(updatedData);
-    };
+    // const toggleState = (index) => {
+    //     const newData = [...dataa];
+    //     newData[index].isActive = !newData[index].isActive;
+    //     setData(newData);
+    // };
 
     const columns = [
         columnHelper.accessor("", {
@@ -47,13 +40,12 @@ export default function Members(props) {
             cell: (info) => <span>{info.getValue()}</span>,
             header: "Age",
         }),
-
         columnHelper.accessor("", {
             cell: (info) => <button type="submit" className="text-center text-white bg-gray-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 h-[35px]">Update</button>,
-            header: "Edite",
+            header: "Edit",
         }),
         columnHelper.accessor("", {
-            id: "states",
+            // id: "states",
             cell: (info) => {
                 // const states = info.row.values.states;
                 // <div className="flex items-center justify-center">
@@ -73,6 +65,17 @@ export default function Members(props) {
                 //     />
                 //     <label htmlFor={`deactivate-${info.row.id}`} className="text-red-500">Deactivate</label>
                 // </div>
+                // {
+                //     data.map((item, index) => (
+                //         <button
+                //             className={`${item.isActive ? 'text-green-500' : 'text-red-500'
+                //                 } focus:outline-none`}
+                //             onClick={() => toggleState(index)}
+                //         >
+                //             {item.isActive ? 'Active' : 'Deactive'}
+                //         </button>
+                //     ))
+                // }
             },
             header: "States",
         }),
@@ -95,25 +98,10 @@ export default function Members(props) {
 
     return (
 
-
-        // <div className='bg-gradient-to-r from-red-500 via-black to-yellow-500 h-90vh'>
-        //     <div className="w-full flex flex-col items-center  justify-center overflow-y-scroll h-90vh">
-        //         <div className="mt-[180px] w-10/12 md:w-9/12 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4  ">
-        //             <AdminPlayerCard title="Captain" imgURL="www.sample.com/dps/dp.jpg" name="Chamika" />
-        //             <AdminPlayerCard title="Captain" imgURL="www.sample.com/dps/dp.jpg" name="Chamika" />
-        //             <AdminPlayerCard title="Captain" imgURL="www.sample.com/dps/dp.jpg" name="Chamika" />
-        //             <AdminPlayerCard title="Captain" imgURL="www.sample.com/dps/dp.jpg" name="Chamika" />
-        //             <AdminPlayerCard title="Captain" imgURL="www.sample.com/dps/dp.jpg" name="Chamika" />
-        //             <AdminPlayerCard title="Captain" imgURL="www.sample.com/dps/dp.jpg" name="Chamika" />
-
-        //         </div>
-        //     </div>
-        // </div>
-
         <div className="p-[4px] max-w-5xl mx-auto  fill-gray-400 rounded">
 
-            <table className="border  w-full text-left rounded">
-                <thead className="bg-yellow-500 rounded-md">
+            <table className="w-full text-left rounded">
+                <thead className="bg-yellow-500">
                     {table.getHeaderGroups().map((headerGroup) => (
                         <tr key={headerGroup.id}>
                             {headerGroup.headers.map((header) => (
@@ -132,9 +120,7 @@ export default function Members(props) {
                         table.getRowModel().rows.map((row, i) => (
                             <tr
                                 key={row.id}
-                                className={`
-                ${i % 2 === 0 ? "bg-gray-900" : "bg-gray-800"}
-                `}
+                                className={`${i % 2 === 0 ? "bg-gray-900" : "bg-gray-800"}`}
                             >
                                 {row.getVisibleCells().map((cell) => (
                                     <td key={cell.id} className="px-3.5 py-2">
@@ -197,7 +183,7 @@ export default function Members(props) {
                     }}
                     className="p-2 bg-black rounded"
                 >
-                    {[10, 20,30].map((pageSize) => (
+                    {[10, 20, 30].map((pageSize) => (
                         <option key={pageSize} value={pageSize}>
                             Show {pageSize}
                         </option>
