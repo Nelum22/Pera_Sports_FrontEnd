@@ -23,7 +23,7 @@ const UpdatePlayerModel = (props) => {
             birthDay: birthDay.current.value,
             faculty: faculty.current.value,
             regNo: regNo.current.value,
-            roleName: roleName.current.value,
+            role: roleName.current.value,
             status : status.current.value
         };
     

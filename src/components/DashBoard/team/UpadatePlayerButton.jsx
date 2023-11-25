@@ -15,7 +15,7 @@ const UpdatePlayerButton = (props) => {
             </button>
             <ModelOverlay visibility={isVisible} setVisibility={setIsVisible}>
                 <UpdatePlayerModel
-                    id={props.playerId}
+                    id={props.id}
                     firstName={props.firstName}
                     lastName={props.lastName}
                     birthDay={props.birthDay}

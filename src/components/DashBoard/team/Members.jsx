@@ -34,11 +34,6 @@ export default function Members(props) {
     // };
 
     const columns = [
-        columnHelper.accessor("", {
-            id: "RegNo",
-            cell: (info) => <span>{info.row.index + 1}</span>,
-            header: "Reg No",
-        }),
         columnHelper.accessor("image", {
             cell: (info) => (
                 <img
@@ -48,6 +43,11 @@ export default function Members(props) {
                 />
             ),
             header: "Image",
+        }),
+        columnHelper.accessor("", {
+            id: "RegNo",
+            cell: (info) => <span>{info.row.index + 1}</span>,
+            header: "Reg No",
         }),
         columnHelper.accessor("name", {
             cell: (info) => <span>{info.getValue()}</span>,
@@ -61,41 +61,41 @@ export default function Members(props) {
             cell: (info) => <button type="submit" className="text-center text-white bg-gray-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 h-[35px]">Update</button>,
             header: "Edit",
         }),
-        columnHelper.accessor("", {
-            // id: "states",
-            cell: (info) => {
-                // const states = info.row.values.states;
-                // <div className="flex items-center justify-center">
-                //      <input
-                //         checked={states === "Active"}
-                //         onChange={() => handleStateChange("Active")}
-                //         className="mr-1"
-                //     />
-                //     <label htmlFor={`active-${info.row.id}`} className="mr-3 text-green-500">Active</label>
-                //      <input
-                //         // type="radio"
-                //         // id={`deactivate-${info.row.id}`}
-                //         // name={`state-${info.row.id}`}
-                //         checked={states === "Deactivate"}
-                //         onChange={() => handleStateChange("Deactivate")}
-                //         className="mr-1"
-                //     />
-                //     <label htmlFor={`deactivate-${info.row.id}`} className="text-red-500">Deactivate</label>
-                // </div>
-                // {
-                //     data.map((item, index) => (
-                //         <button
-                //             className={`${item.isActive ? 'text-green-500' : 'text-red-500'
-                //                 } focus:outline-none`}
-                //             onClick={() => toggleState(index)}
-                //         >
-                //             {item.isActive ? 'Active' : 'Deactive'}
-                //         </button>
-                //     ))
-                // }
-            },
-            header: "States",
-        }),
+        // columnHelper.accessor("", {
+        //     // id: "states",
+        //     cell: (info) => {
+        //         // const states = info.row.values.states;
+        //         // <div className="flex items-center justify-center">
+        //         //      <input
+        //         //         checked={states === "Active"}
+        //         //         onChange={() => handleStateChange("Active")}
+        //         //         className="mr-1"
+        //         //     />
+        //         //     <label htmlFor={`active-${info.row.id}`} className="mr-3 text-green-500">Active</label>
+        //         //      <input
+        //         //         // type="radio"
+        //         //         // id={`deactivate-${info.row.id}`}
+        //         //         // name={`state-${info.row.id}`}
+        //         //         checked={states === "Deactivate"}
+        //         //         onChange={() => handleStateChange("Deactivate")}
+        //         //         className="mr-1"
+        //         //     />
+        //         //     <label htmlFor={`deactivate-${info.row.id}`} className="text-red-500">Deactivate</label>
+        //         // </div>
+        //         // {
+        //         //     data.map((item, index) => (
+        //         //         <button
+        //         //             className={`${item.isActive ? 'text-green-500' : 'text-red-500'
+        //         //                 } focus:outline-none`}
+        //         //             onClick={() => toggleState(index)}
+        //         //         >
+        //         //             {item.isActive ? 'Active' : 'Deactive'}
+        //         //         </button>
+        //         //     ))
+        //         // }
+        //     },
+        //     header: "States",
+        // }),
     ];
 
     // const kdata = Object.assign({}, udata);
@@ -118,7 +118,7 @@ export default function Members(props) {
     return (
 
         <div className="p-[4px] max-w-5xl mx-auto  fill-gray-400 rounded">
-
+            {console.log(udata)}
             <table className="w-full text-left rounded">
                 <thead className="bg-yellow-500">
                     {table.getHeaderGroups().map((headerGroup) => (
@@ -135,24 +135,24 @@ export default function Members(props) {
                     ))}
                 </thead>
                 <tbody className='text-white'>
-                    {table.getRowModel().rows.length ? (
-                        table.getRowModel().rows.map((row, i) => (
-                            <tr
-                                key={row.id}
-                                className={`${i % 2 === 0 ? "bg-gray-900" : "bg-gray-800"}`}
-                            >
-                                {row.getVisibleCells().map((cell) => (
-                                    <td key={cell.id} className="px-3.5 py-2">
-                                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                                    </td>
-                                ))}
-                            </tr>
-                        ))
-                    ) : (
-                        <tr className="text-center h-32">
-                            <td colSpan={12}>No Recoard Found!</td>
-                        </tr>
-                    )}
+                    {udata.map((player) => <tr className='bg-white text-black'>
+                        <td><div className='w-8 bg-slate-500 aspect-square rounded-full'></div></td>
+                        <td>{player.regNo}</td>
+                        <td>{player.firstName}</td>
+                        <td>{player.birthDay}</td>
+                        <td>
+                            <UpdatePlayerButton
+                                id={player.playerId}
+                                firstName={player.firstName}
+                                lastName={player.lastName}
+                                birthDay={player.birthDay}
+                                faculty={player.faculty}
+                                regNo={player.regNo}
+                                roleName = {player.roleName}
+                                status = {player.status}
+                            />
+                        </td>
+                    </tr>)}
                 </tbody>
               
             </table>
