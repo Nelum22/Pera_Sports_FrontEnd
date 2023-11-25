@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import Members from '../components/DashBoard/team/Members'
 import AddMember from '../components/DashBoard/team/AddMember'
-import DeleteTeam from '../components/DashBoard/DeteleTeam'
+import UpdateMember from '../components/DashBoard/team/UpdateMember'
+// import DeleteTeam from '../components/DashBoard/DeteleTeam'
 
 
 export default function LeaderDashboard() {
@@ -22,11 +23,11 @@ export default function LeaderDashboard() {
                 >
                     Add 
                 </span>
-                {/* <span
+                <span
                     className="w-10/12 py-3 text-center border-b-2 rounded-t-md border-black hover:bg-yellow-100 cursor-pointer"
                     onClick={() => setComponent("updatemember")}
                 >
-                    Update Team</span> */}
+                    Update Team</span>
             </div>
             <div className="w-9/12 h-full">
                 {(compenent === "members") ? <Members /> : (compenent === "addmember") ? <AddMember /> : (compenent === "updatemember") ? <UpdateMember /> : <DeleteTeam />}
