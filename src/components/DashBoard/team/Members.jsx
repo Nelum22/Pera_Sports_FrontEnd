@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import AdminPlayerCard from './AdminPlayerCard'
+// import AdminPlayerCard from './AdminPlayerCard'
 import { createColumnHelper, flexRender, getCoreRowModel, getFilteredRowModel, getPaginationRowModel, useReactTable } from '@tanstack/react-table';
-import DebouncedInput from '../icons/DebouncedInput';
+// import DebouncedInput from '../icons/DebouncedInput';
 import { USERS } from '../icons/Data';
 
 export default function Members(props) {
@@ -112,8 +112,8 @@ export default function Members(props) {
 
         <div className="p-[4px] max-w-5xl mx-auto  fill-gray-400 rounded">
 
-            <table className="border  w-full text-left rounded">
-                <thead className="bg-yellow-500 rounded-md">
+            <table className="w-full text-left rounded">
+                <thead className="bg-yellow-500">
                     {table.getHeaderGroups().map((headerGroup) => (
                         <tr key={headerGroup.id}>
                             {headerGroup.headers.map((header) => (
@@ -132,9 +132,7 @@ export default function Members(props) {
                         table.getRowModel().rows.map((row, i) => (
                             <tr
                                 key={row.id}
-                                className={`
-                ${i % 2 === 0 ? "bg-gray-900" : "bg-gray-800"}
-                `}
+                                className={`${i % 2 === 0 ? "bg-gray-900" : "bg-gray-800"}`}
                             >
                                 {row.getVisibleCells().map((cell) => (
                                     <td key={cell.id} className="px-3.5 py-2">
