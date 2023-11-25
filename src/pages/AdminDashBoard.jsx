@@ -1,10 +1,20 @@
 import React, {useState} from "react";
 import Summery from "../components/DashBoard/Summery";
 import AddTeam from "../components/DashBoard/AddTeam";
+import { useNavigate } from "react-router";
 
 const AdminDashBoard = () => {
 
     const [compenent, setComponent] = useState("summery")
+    const role = localStorage.getItem("role")
+    const navigate = useNavigate()
+
+    React.useEffect(() => {
+        if(role != 'Admin' || role == "" || role == undefined){
+            navigate('/login')
+            localStorage.removeItem('role')
+        }
+    },[])
 
     return(
         <div className="w-full h-90vh flex">

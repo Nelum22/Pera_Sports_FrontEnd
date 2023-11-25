@@ -10,6 +10,8 @@ const NavBar = () => {
     const [visibility, setVisibility] = useState(false)
     const location = useLocation()
     const searchContext = React.useContext(SearchContext)
+
+
     return(
         <header className="relative bg-gradient-to-r from-yellow-500 via-black-500 to-red-800 w-full top-0 left-0 right-0 z-30 flex items-center justify-between">
             <span className="flex items-center gap-2">

@@ -3,11 +3,20 @@ import Members from '../components/DashBoard/team/Members'
 import AddMember from '../components/DashBoard/team/AddMember'
 import UpdateMember from '../components/DashBoard/team/UpdateMember'
 // import DeleteTeam from '../components/DashBoard/DeteleTeam'
-
+import { useNavigate } from 'react-router'
 
 export default function LeaderDashboard() {
 
     const [compenent, setComponent] = useState("members")
+    const role = localStorage.getItem('role')
+    const navigate = useNavigate()
+
+    React.useEffect(() => {
+        if(role == 'Admin' || role == "" || role == undefined){
+            navigate('/login')
+            localStorage.removeItem('role')
+        }
+    },[])
 
     return (
         <div className="w-full h-90vh flex bg-gradient-to-r from-yellow-500 via-black-500 to-red-800">
