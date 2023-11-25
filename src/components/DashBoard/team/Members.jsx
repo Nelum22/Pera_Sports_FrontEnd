@@ -55,24 +55,24 @@ export default function Members(props) {
         columnHelper.accessor("", {
             id: "states",
             cell: (info) => {
-                const states = info.row.values.states;
-                <div className="flex items-center justify-center">
-                     <input
-                        checked={states === "Active"}
-                        onChange={() => handleStateChange("Active")}
-                        className="mr-1"
-                    />
-                    <label htmlFor={`active-${info.row.id}`} className="mr-3 text-green-500">Active</label>
-                     <input
-                        // type="radio"
-                        // id={`deactivate-${info.row.id}`}
-                        // name={`state-${info.row.id}`}
-                        checked={states === "Deactivate"}
-                        onChange={() => handleStateChange("Deactivate")}
-                        className="mr-1"
-                    />
-                    <label htmlFor={`deactivate-${info.row.id}`} className="text-red-500">Deactivate</label>
-                </div>
+                // const states = info.row.values.states;
+                // <div className="flex items-center justify-center">
+                //      <input
+                //         checked={states === "Active"}
+                //         onChange={() => handleStateChange("Active")}
+                //         className="mr-1"
+                //     />
+                //     <label htmlFor={`active-${info.row.id}`} className="mr-3 text-green-500">Active</label>
+                //      <input
+                //         // type="radio"
+                //         // id={`deactivate-${info.row.id}`}
+                //         // name={`state-${info.row.id}`}
+                //         checked={states === "Deactivate"}
+                //         onChange={() => handleStateChange("Deactivate")}
+                //         className="mr-1"
+                //     />
+                //     <label htmlFor={`deactivate-${info.row.id}`} className="text-red-500">Deactivate</label>
+                // </div>
             },
             header: "States",
         }),

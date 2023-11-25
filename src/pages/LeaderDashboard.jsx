@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import DeleteTeam from '../components/DashBoard/DeteleTeam'
 import Members from '../components/DashBoard/team/Members'
 import AddMember from '../components/DashBoard/team/AddMember'
-import UpdateMember from '../components/DashBoard/team/UpdateMember'
+import DeleteTeam from '../components/DashBoard/DeteleTeam'
+
 
 export default function LeaderDashboard() {
 
@@ -20,7 +20,7 @@ export default function LeaderDashboard() {
                     className="w-10/12 py-3 text-center border-b-2 rounded-t-md border-black hover:bg-yellow-100 cursor-pointer"
                     onClick={() => setComponent("addmember")}
                 >
-                    Add Member</span>
+                    Add </span>
                 {/* <span
                     className="w-10/12 py-3 text-center border-b-2 rounded-t-md border-black hover:bg-yellow-100 cursor-pointer"
                     onClick={() => setComponent("updatemember")}
