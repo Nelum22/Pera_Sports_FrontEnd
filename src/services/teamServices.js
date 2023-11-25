@@ -1,8 +1,8 @@
 import axios from "axios"
 
-export const getAllTeams = async(teamName) => {
+export const getAllTeams = async(teamName, year) => {
 
-    const url = `http://localhost:8080/pera-sport/team/get-teams?teamName=${teamName}`
+    const url = `http://localhost:8080/pera-sport/team/get-teams?teamName=${teamName}&teamYear=${year}`
     try{
         const res = await axios.post(url)
         const data = res.data
